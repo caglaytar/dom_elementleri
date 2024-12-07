@@ -1,0 +1,125 @@
+<html>
+
+<body>
+
+    <div id="content">Merhaba Dünya!</div>
+    <script>
+        const element = document.getElementByld("content");
+        element.style.color = "blue";
+        element.textContent = "Merhaba Javascript!";
+    </script>
+
+
+
+    <div id="greeting"></div>
+    <script>
+        const greeting = document.getElementById("greeting");
+        greeting.innerHTML = "<h1>Hoşgeldiniz!</h1>";
+    </script>
+    <button id="changeColor">Rengi değiştir</button>
+    <div id="box" style="width: 100px; height:100px; background-color: blue;"></div>
+    <script>
+        document.getElementById("changeColor").onclick = function () {
+            const box = document.getElementById("box");
+            box.style.backgroundColor = "green";
+        };
+    </script>
+
+
+
+    <ul id="list">
+        <li>Öğe 1</li>
+        <li>Öğe 2</li>
+    </ul>
+    <button id="addItem">Öğe Ekle</button>
+
+
+    <br>
+    <script>
+        document.getElementById("addItem").onclick = function () {
+            const newItem = document.createElement("li");
+            newItem.textContent = "Yeni Öğe";
+            document.getElementById("list").appendChild(newItem);
+        }
+    </script>
+
+    <input type="text" id="inputBox" placeholder="Adınızı girin">
+    <p id="output"></p>
+    <script>
+        document.getElementById("inputBox").addEventListener("input", function () {
+            const output = document.getElementById("output");
+            output.textContent = "Merhaba, " + this.value;
+        });
+    </script>
+
+
+    <!-- Kullanıcıdan alınan bir girdiyi listeye ekleme ve listedeki öğeyi kaldırma-->
+    <input type=text id="itemInput" placeholder="Bir öğe ekleyin">
+    <button id="addButton">Ekle</button>
+    <ul id="itemList"></ul>
+
+    <script>
+        document.getElementById("addButton").onclick = function () {
+            const input = document.getElementById("itemInput");
+            const newItem = document.createElement("li");
+            newItem.textContent = input.value;
+            const list = document.getElementById("itemList");
+
+
+            <!--Silme düğmesi ekle-->
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Sil";
+            deleteButton.onclick = function () {
+                list.removeChild(newItem);
+            };
+
+            newItem.appendChild(deleteButton);
+            list.appendChild(newItem);
+            input.value = "";
+        }   
+    </script>
+
+    <!--Kullanıcı butona tıkladığında metnin rengini değiştir-->
+    <div id="text">Merhaba Dünya!</div>
+    <button id="colorButton">Rengi değiştir</button>
+    <script>
+        document.getElementById("colorButton").onclick = function () {
+            const box = document.getElementById("text");
+            box.style.color = "red";
+        };
+    </script>
+
+
+    <!--Amaç:Bir butona tıklandığında sayfaya yeni bir paragraf ekle.-->
+    <h1>Kullanıcı paragraf eklemek</h1>
+    <input type="text" id="paragraf" placeholder="lütfen paragraf girin">
+    <button id="addParagraf">paragraf ekle</button>
+    <div id="custom"></div>
+    <script>
+        document.getElementById("addParagraf").onclick = function () {
+            const paragraf = document.getElementById("paragraf");
+            const newItem = document.createElement("p");
+            newItem.textContent = paragraf.value;
+            const custom = document.getElementById("custom");
+            custom.appendChild(newItem);
+            paragraf.value = "";
+        };
+    </script>
+
+
+
+    <!--Bir butona tıklanınca sayfanın arka plan rengini rastgele bir renkle değiştir.-->
+    <h1>Buton Rengi Değiştirme</h1>
+    <button id="button">Sayfanın arka plan rengini değiştir</button>
+    <script>
+        document.getElementById("button").onclick = function () {
+            const randomColor = '#' + Math.floor(Math.random() * 5).toString();
+            console.log(randomColor);
+            document.body.style.backgroundColor = randomColor;
+        };
+    </script>
+
+
+</body>
+
+</html>
