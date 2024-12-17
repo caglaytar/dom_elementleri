@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Ad">
+<input type="text" id="surname" placeholder="Soyad">
+<button id="addRowBtn">Tabloya Ekle</button>
+<table id="dataTable" border="1">
+    <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+    </tr>
+</table>
+<script>
+
+document.getElementById("addRowBtn").addEventListener("click", function() {
+    const name = document.getElementById("name").value;
+    const surname = document.getElementById("surname").value;
+
+    if (name && surname) {
+        const table = document.getElementById("dataTable");
+        const newRow = document.createElement("tr");
+
+        const nameCell = document.createElement("td");
+        nameCell.innerText = name;
+
+        const surnameCell = document.createElement("td");
+        surnameCell.innerText = surname;
+
+        newRow.appendChild(nameCell);
+        newRow.appendChild(surnameCell);
+        table.appendChild(newRow);
+
+        document.getElementById("name").value = "";
+        document.getElementById("surname").value = "";
+    }
+});
+
+</script>
+</body>
+</html>

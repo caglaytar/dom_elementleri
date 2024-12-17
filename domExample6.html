@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Taş, Kağıt, Makas</h2>
+<button class="choice" data-choice="taş">Taş</button>
+<button class="choice" data-choice="kağıt">Kağıt</button>
+<button class="choice" data-choice="makas">Makas</button>
+<p>Sonuç: <span id="result"></span></p>
+
+
+<script>const choices = document.querySelectorAll(".choice");
+    const result = document.getElementById("result");
+    
+    choices.forEach(choice => {
+        choice.addEventListener("click", () => {
+            const userChoice = choice.getAttribute("data-choice");
+            const computerChoice = ["taş", "kağıt", "makas"][Math.floor(Math.random() * 3)];
+            
+            if (userChoice === computerChoice) {
+                result.innerText = `Berabere! Bilgisayar: ${computerChoice}`;
+            } else if (
+                (userChoice === "taş" && computerChoice === "makas") ||
+                (userChoice === "kağıt" && computerChoice === "taş") ||
+                (userChoice === "makas" && computerChoice === "kağıt")
+            ) {
+                result.innerText = `Kazandınız! Bilgisayar: ${computerChoice}`;
+            } else {
+                result.innerText = `Kaybettiniz! Bilgisayar: ${computerChoice}`;
+            }
+        });
+    });
+    </script>
+</body>
+</html>

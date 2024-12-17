@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="timer">0</h2>
+    <button id="startBtn">Başlat</button>
+    <button id="stopBtn">Durdur</button>
+
+    <script>
+      let timer;
+      let count = 0;
+
+      document
+        .getElementById("startBtn")
+        .addEventListener("click", function () {
+          if (!timer) {
+            timer = setInterval(() => {
+              count++;
+              document.getElementById("timer").innerText = count;
+            }, 1000);
+          }
+        });
+
+      document.getElementById("stopBtn").addEventListener("click", function () {
+        clearInterval(timer);
+        timer = null;
+      });
+    </script>
+  </body>
+</html>
